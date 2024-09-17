@@ -1,10 +1,6 @@
 ﻿
+using EMS1.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using EMS1.Models;
-using System.Linq;
-using System.Threading.Tasks;
-using EMS1.Models;
 
 public class WorkController : Controller
 {
@@ -15,14 +11,14 @@ public class WorkController : Controller
         _context = context;
     }
 
-    
+
     public IActionResult Create()
     {
         ViewData["Employees"] = _context.Employees.ToList();
         return View();
     }
 
-    
+
     [HttpPost]
 
     public async Task<IActionResult> Create([Bind("WorkId,Description,EndDate,")] Work work)
@@ -38,6 +34,6 @@ public class WorkController : Controller
     }
 
 
-        
-   }
+
+}
 
