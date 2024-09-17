@@ -1,0 +1,60 @@
+﻿@model List<Employee>
+
+
+<div class="container">
+
+    <div class="row pt-4 pb-20">
+        <div class="col-4">
+            <h2 class="text-primary">Employee List</h2>
+        </div>
+        <div class="col-8 text-end display-flex margin-right: 10px">
+            <!-- Button for add a new employee -->
+            <a asp-controller="Employee" asp-action="Add" class="btn btn-primary">
+                <i class="bi bi-plus-circle  "></i> Add New Employee
+            </a>
+
+            
+        </div>
+
+    </div>
+    
+
+    <table class="table table-bordered table-striped">
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        
+
+    </tbody>
+
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.ID</td>
+                    <td>@employee.Name</td>
+                    <td>@employee.Department</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = employee.ID })" class="btn btn-warning">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = employee.ID })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+
+
+
+    </table>
+
+
+
+        </tbody>
+    </table>
